@@ -1,19 +1,21 @@
-
 public class Average {
-    /*
-     * Now that we can get the sum of all numbers in an array, we could also figure out how to get the average of an
-     * array. The return type of this method double, so a decimal value is expected (as is common in averages).
+    /**
+     * Calculates the average of the values in the given array.
      *
-     * Part of the challenge is that the method receives an array of ints, which do not produce decimal values
-     * even in operations where they should! (eg: 3/2=1 if 3 is of type int.)
-     *
-     * So, before you divide the sum of all numbers by the amount of numbers in order to produce the average,
-     * you'll need do convert the sum to type double. How can we do that?
-     *
-     * @param nums an array to be manipulated.
-     * @return the average of all the values of nums.
+     * @param nums an array of integers.
+     * @return the average of the values in nums.
      */
-    public double getAvg(int[] nums){
-        return 0;
+    public double getAvg(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0.0; // Return 0 for an empty or null array to avoid division by zero.
+        }
+
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+
+        // Convert sum to type double before dividing to ensure decimal values in the result.
+        return (double) sum / nums.length;
     }
 }
